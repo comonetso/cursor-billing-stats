@@ -32,11 +32,17 @@ This extension is a modified and updated version of the original [Cursor Stats](
 
 ### Manual Installation
 
-1. Download the latest .vsix file from Releases
-2. Open VS Code/Cursor
-3. Press Ctrl+Shift+P (Cmd+Shift+P on macOS)
-4. Type 'Install from VSIX' and select it
-5. Choose the downloaded VSIX file
+1. Clone this repository or download the source code
+2. Compile the extension using the following commands:
+   ```
+   npm install
+   npm run compile
+   vsce package
+   ```
+3. Open VS Code/Cursor
+4. Press Ctrl+Shift+P (Cmd+Shift+P on macOS)
+5. Type 'Install from VSIX' and select it
+6. Choose the generated VSIX file (cursor-billing-stats-1.0.11.vsix)
 
 ## Configuration
 
@@ -48,6 +54,26 @@ The extension can be configured through VS Code settings:
 * `cursorBillingStats.usageAlertThresholds`: Configure percentage thresholds for alerts
 * `cursorBillingStats.refreshInterval`: Set update frequency
 * `cursorBillingStats.spendingAlertThreshold`: Configure dollar amount thresholds for spending alerts
+
+## Building from Source
+
+1. Clone the repository
+   ```
+   git clone https://github.com/comonetso/cursor-billing-stats.git
+   cd cursor-billing-stats
+   ```
+2. Install dependencies
+   ```
+   npm install
+   ```
+3. Compile the TypeScript code
+   ```
+   npm run compile
+   ```
+4. Package the extension
+   ```
+   vsce package
+   ```
 
 ## Credits
 
