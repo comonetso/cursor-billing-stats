@@ -1,0 +1,144 @@
+{
+  "name": "cursor-billing-stats",
+  "displayName": "Cursor Billing Stats",
+  "description": "Track and monitor your Cursor API usage and billing information",
+  "version": "1.0.11",
+  "publisher": "Blueming",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/comonetso/cursor-billing-stats"
+  },
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "cursor",
+    "cursor.com",
+    "cursor-ide",
+    "statistics",
+    "monitoring",
+    "usage",
+    "billing",
+    "analytics"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursor-billing-stats.updateToken",
+        "title": "Cursor Billing Stats: Update Session Token"
+      },
+      {
+        "command": "cursor-billing-stats.refreshStats",
+        "title": "Cursor Billing Stats: Refresh Statistics",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "cursor-billing-stats.openSettings",
+        "title": "Cursor Billing Stats: Open Settings",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "cursor-billing-stats.setLimit",
+        "title": "Cursor Billing Stats: Usage Based Pricing Settings",
+        "icon": "$(dollar)"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Cursor Billing Stats",
+        "properties": {
+          "cursorBillingStats.enableLogging": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable detailed logging for debugging purposes.",
+            "scope": "window"
+          },
+          "cursorBillingStats.enableStatusBarColors": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable colored status bar based on usage percentage.",
+            "scope": "window"
+          },
+          "cursorBillingStats.enableAlerts": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable usage alert notifications.",
+            "scope": "window"
+          },
+          "cursorBillingStats.usageAlertThresholds": {
+            "type": "array",
+            "default": [
+              10,
+              30,
+              50,
+              75,
+              90,
+              100
+            ],
+            "description": "Percentage thresholds at which to show usage alerts.",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "scope": "window"
+          },
+          "cursorBillingStats.refreshInterval": {
+            "type": "number",
+            "default": 60,
+            "minimum": 10,
+            "description": "How often to refresh the stats (in seconds). Minimum 10 seconds.",
+            "scope": "window"
+          },
+          "cursorBillingStats.spendingAlertThreshold": {
+            "type": "number",
+            "default": 1,
+            "minimum": 0,
+            "description": "Dollar amount threshold for spending notifications (0 to disable, any positive amount in dollars).",
+            "scope": "window"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.8",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/sql.js": "^1.4.9",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "jsonwebtoken": "^9.0.2",
+    "marked": "^15.0.6",
+    "semver": "^7.5.4",
+    "sql.js": "^1.12.0"
+  },
+  "extensionKind": [
+    "ui"
+  ]
+}
