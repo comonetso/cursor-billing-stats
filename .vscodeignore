@@ -1,0 +1,78 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+
+builds/**
+.git/**
+.github/**
+**/eslint.config.mjs
+
+# Development files
+.cursorignore
+package-lock.json
+**/test/**
+**/*.test.js
+**/*.spec.js
+**/.npmignore
+scripts/**
+
+# Node modules to exclude (keeping only necessary ones)
+node_modules/sql.js/**
+!node_modules/sql.js/package.json
+!node_modules/sql.js/dist/sql-wasm.js
+!node_modules/sql.js/dist/sql-wasm.wasm
+
+# Keep minimal axios files
+!node_modules/axios/dist/axios.cjs
+!node_modules/axios/index.js
+!node_modules/axios/package.json
+
+# Keep minimal jsonwebtoken files
+!node_modules/jsonwebtoken/index.js
+!node_modules/jsonwebtoken/lib/**
+!node_modules/jsonwebtoken/package.json
+
+# Keep minimal semver files
+!node_modules/semver/index.js
+!node_modules/semver/package.json
+!node_modules/semver/classes/**
+!node_modules/semver/functions/**
+!node_modules/semver/internal/**
+!node_modules/semver/ranges/**
+
+# Exclude unnecessary files from dependencies
+node_modules/**/LICENSE*
+node_modules/**/README*
+node_modules/**/CHANGELOG*
+node_modules/**/.travis.yml
+node_modules/**/.eslintrc*
+node_modules/**/test/**
+node_modules/**/tests/**
+node_modules/**/docs/**
+node_modules/**/example/**
+node_modules/**/examples/**
+node_modules/**/coverage/**
+node_modules/**/.github/**
+node_modules/**/.git/**
+node_modules/**/bench/**
+node_modules/**/benchmark/**
+node_modules/@types/
+node_modules/typescript/
+
+# Keep only the necessary image
+images/**/*.?(png|gif|jpg|jpeg|webp)
+!images/icon.png
+
+# Exclude any VSIX files
+**/*.vsix
+
+*.ps1
+
+# exclude any md files
+**/*.md
